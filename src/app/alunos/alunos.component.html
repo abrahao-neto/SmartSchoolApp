@@ -1,0 +1,46 @@
+<div *ngIf="alunoSelecionado">
+
+    <div class="row">
+        <div >
+            <app-titulo [titulo]="'Aluno: ' + alunoSelecionado"></app-titulo>
+        </div>
+        <div class="d-flex flex-row-reverse ">
+            <button class="btn btn-warning position-absolute top-50" (click)="voltar()">Voltar</button>
+        </div>
+    </div>
+    <br>
+    <form >
+        <div class="form-group">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput2" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+          </div>
+    </form>
+    
+</div>
+<div *ngIf="!alunoSelecionado">
+    <app-titulo [titulo]="titulo"></app-titulo>
+    <table class="table table-hover">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Sobrenome</th>
+            <th scope="col">Telefone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let aluno of alunos" style="cursor: pointer" (click)="alunoSelect(aluno)">
+            <th scope="row">{{ aluno.id }}</th>
+            <td>{{ aluno.nome }}</td>
+            <td>{{ aluno.sobrenome }}</td>
+            <td>{{ aluno.telefone}}</td>
+          </tr>
+        </tbody>
+      </table>
+      
+</div>
+
